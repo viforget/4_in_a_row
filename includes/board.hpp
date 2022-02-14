@@ -18,6 +18,7 @@ class	Board {
 		void	print_board();
 		int		play_disc(size_t color, size_t nb);
 		int		check_win(int color);
+		int		is_full();
 
 	private:
 		size_t	_width;

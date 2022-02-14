@@ -30,7 +30,6 @@ Board::~Board()
 void	Board::print_board()
 {
 	std::system("clear");
-	std::cout << std::endl;
 	for (size_t i = this->_height - 1; i != static_cast<size_t>(-1); i--)
 	{
 		for (size_t j = 0; j < this->_width; j++)
@@ -50,7 +49,7 @@ void	Board::print_board()
 		}
 		std::cout << std::endl;
 	}
-	std::cout << "1 2 3 4 5 6 7" << std::endl << "--------------" << std::endl;
+	std::cout << "1 2 3 4 5 6 7" << std::endl;
 }
 
 int		Board::play_disc(size_t color, size_t nb)
@@ -137,4 +136,14 @@ int		Board::check_win(int color)
 		}
 	}
 	return(0);
+}
+
+int		Board::is_full()
+{
+	for (size_t i = 0; i < this->_width; i++)
+	{
+		if (this->_tab[i][this->_height - 1] == 0)
+			return (0);
+	}
+	return (1);
 }

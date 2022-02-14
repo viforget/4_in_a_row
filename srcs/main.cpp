@@ -44,10 +44,12 @@ int main()
 	int			end = 0;
 
 	bb.print_board();
-	while(!end)
+	while(!end && !bb.is_full())
 	{
 		end = turn(bb, RED);
-		if (!end)
+		if (!end && !bb.is_full())
 			end = turn(bb, YEL);
 	}
+	if (bb.is_full() && !bb.check_win(YEL) && !bb.check_win(RED))
+		std::cout << "👔 TIE 👔" << std::endl;
 }
